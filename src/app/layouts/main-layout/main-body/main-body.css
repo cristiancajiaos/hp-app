@@ -1,3 +1,7 @@
 :host {
   display: block;
 }
+
+.main-body {
+  padding-top: 5rem;
+}
