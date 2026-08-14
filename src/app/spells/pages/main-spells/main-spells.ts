@@ -1,11 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { SpellService } from '../../services/spell-service';
 import { rxResource } from '@angular/core/rxjs-interop';
-import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-main-spells',
-  imports: [JsonPipe],
+  imports: [],
   templateUrl: './main-spells.html',
   styleUrl: './main-spells.css',
 })
