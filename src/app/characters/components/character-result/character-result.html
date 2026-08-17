@@ -1,7 +1,7 @@
 <section class="character-result">
   <a [routerLink]="['/characters', character().id]">
     <img [src]="character().image | setImage"
-         [alt]="character.name"
+         [alt]="character().name"
          class="w-full h-max"/>
     <span class="flex bg-amber-400 text-black font-bold justify-center">
       <span>{{character().name}}</span>

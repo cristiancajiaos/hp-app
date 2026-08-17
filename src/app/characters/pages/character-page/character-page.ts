@@ -4,12 +4,12 @@ import { CharacterService } from '../../services/character-service';
 import { rxResource, toSignal } from '@angular/core/rxjs-interop';
 import { Loading } from '../../../shared/components/loading/loading';
 import { map, switchMap } from 'rxjs';
-import { DatePipe, TitleCasePipe } from '@angular/common';
+import { TitleCasePipe } from '@angular/common';
 import { SetImagePipe } from '../../../shared/pipes/set-image-pipe';
 
 @Component({
   selector: 'app-character-page',
-  imports: [Loading, DatePipe, TitleCasePipe, SetImagePipe],
+  imports: [Loading, TitleCasePipe, SetImagePipe],
   templateUrl: './character-page.html',
   styleUrl: './character-page.css',
 })
