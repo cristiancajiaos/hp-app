@@ -3,13 +3,13 @@ import { rxResource, toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
 import { map} from 'rxjs';
 import { CharacterService } from '../../services/character-service';
-import { JsonPipe, TitleCasePipe } from '@angular/common';
+import { TitleCasePipe } from '@angular/common';
 import { Loading } from '../../../shared/components/loading/loading';
 import { CharacterResult } from '../../components/character-result/character-result';
 
 @Component({
   selector: 'app-characters-house',
-  imports: [TitleCasePipe, JsonPipe, Loading, CharacterResult],
+  imports: [TitleCasePipe, Loading, CharacterResult],
   templateUrl: './characters-house.html',
   styleUrl: './characters-house.css',
 })

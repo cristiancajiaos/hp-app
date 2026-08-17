@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Service } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable, of, tap } from 'rxjs';
 import { Character } from '../interfaces/character';
 
 @Service()
@@ -14,5 +14,11 @@ export class CharacterService {
 
   getCharactersByHouse(house: string): Observable<Character[]> {
     return this.http.get<Character[]>(`/characters/house/${house}`);
+  }
+
+  getCharacterById(id: string): Observable<Character> {
+    return this.http.get<Character[]>(`/character/${id}`).pipe(
+      map(results => results[0])
+    )
   }
 }

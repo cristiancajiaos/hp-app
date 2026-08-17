@@ -1,0 +1,60 @@
+<section class="character-page">
+  @if (characterId.isLoading()) {
+    <app-loading />
+  }
+  @if (characterId.hasValue()) {
+    <header class="mb-3">
+      <h1 class="text-3xl font-bold">
+        {{ characterId.value()?.name }}
+        <div class="badge badge-warning">{{ characterId.value()?.house }}</div>
+      </h1>
+    </header>
+    <div class="divider"></div>
+    <img class="w-50" [src]="characterId.value().image | setImage" [alt]="characterId.value().name" />
+    <div class="divider"></div>
+    <section class="details">
+      <h2 class="text-2xl font-bold">Details</h2>
+      @if (characterId.value()?.alternate_names.length > 0) {
+        <p>
+          Alternate names:
+          @for (altName of characterId.value()?.alternate_names; track altName; let last = $last) {
+            <span>{{ altName }}</span>
+            @if (!last) {
+              <span>,</span>
+            }
+          }
+        </p>
+      }
+      <p>Species: {{ characterId.value()?.species | titlecase }}</p>
+      @if (characterId.value().ancestry) {
+        <p>Ancestry: {{ characterId.value().ancestry | titlecase }}</p>
+      }
+      <p>Gender: {{ characterId.value()?.gender | titlecase }}</p>
+      @if (characterId.value()?.yearOfBirth) {
+        <p>Year of birth: {{ characterId.value()?.yearOfBirth }}</p>
+      }
+      @if (characterId.value()?.eyeColour) {
+        <p>
+          Eye Color:
+          <span [style.color]="characterId.value()?.eyeColour">{{
+            characterId.value()?.eyeColour
+          }}</span>
+        </p>
+      }
+      @if (characterId.value()?.hairColour) {
+        <p>
+          Hair Color:
+          <span [style.color]="characterId.value()?.hairColour">{{
+            characterId.value()?.hairColour
+          }}</span>
+        </p>
+      }
+      <p>Is a wizard?: {{ characterId.value()?.wizard ? 'Yes' : 'No' }}</p>
+      <p>Is a student?: {{ characterId.value()?.hogwartsStudent ? 'Yes' : 'No' }}</p>
+      <p>Is part of the Hogwarts staff?: {{ characterId.value()?.hogwartsStaff ? 'Yes' : 'No' }}</p>
+      @if (characterId.value()?.actor) {
+        <p>Actor who portrays in the movies: {{ characterId.value()?.actor }}</p>
+      }
+    </section>
+  }
+</section>

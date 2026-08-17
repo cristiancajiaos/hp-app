@@ -3,6 +3,7 @@ import { CharactersHome } from './pages/characters-home/characters-home';
 import { CharactersStudents } from './pages/characters-students/characters-students';
 import { CharactersHouse } from './pages/characters-house/characters-house';
 import { CharactersStaff } from './pages/characters-staff/characters-staff';
+import { CharacterPage } from './pages/character-page/character-page';
 
 export const charactersRoutes: Routes = [
   {
@@ -26,6 +27,11 @@ export const charactersRoutes: Routes = [
       {
         path: 'staff',
         component: CharactersStaff,
+        pathMatch: 'full',
+      },
+      {
+        path: ':id',
+        component: CharacterPage,
         pathMatch: 'full',
       },
       {
