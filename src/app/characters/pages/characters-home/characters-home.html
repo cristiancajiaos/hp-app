@@ -1,1 +1,66 @@
-<p>characters-home works!</p>,
+<section class="characters-home">
+  <h1 class="text-3xl font-bold flex items-center mb-3">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      class="mr-2"
+      viewBox="0 0 24 24"
+    >
+      <path d="M0 0h24v24H0z" fill="none" />
+      <g fill="currentColor">
+        <path
+          d="M11.25 2.07324C10.6437 2.18634 9.93159 2.43011 8.83772 2.80454L8.26491 3.00062C5.25832 4.02978 3.75503 4.54436 3.37752 5.08223C3.00825 5.60836 3.00018 7.14957 3 10.2093L11.25 7.45925V2.07324Z"
+        />
+        <path
+          d="M11.25 9.04039L3 11.7904V11.9912C3 17.6293 7.23896 20.3653 9.89856 21.5271C10.4093 21.7502 10.7392 21.8943 11.25 21.9595V9.04039Z"
+        />
+        <path
+          d="M12.75 21.9595V9.04039L21 11.7904V11.9912C21 17.6293 16.761 20.3653 14.1014 21.5271C13.5907 21.7502 13.2608 21.8943 12.75 21.9595Z"
+        />
+        <path
+          d="M12.75 7.45925V2.07324C13.3563 2.18634 14.0684 2.43011 15.1623 2.80454L15.7351 3.00062C18.7417 4.02978 20.245 4.54436 20.6225 5.08223C20.9918 5.60836 20.9998 7.14957 21 10.2093L12.75 7.45925Z"
+        />
+      </g>
+    </svg>
+    <span>By House</span>
+  </h1>
+  <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+    @for (house of houses; track house) {
+      <a [routerLink]="['/characters/house', house]" class="btn bg-amber-400 text-black">
+        {{ house | titlecase }}
+      </a>
+    }
+  </div>
+  <div class="divider"></div>
+  <h1 class="text-3xl font-bold flex items-center mb-3">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+      <path d="M0 0h24v24H0z" fill="none" />
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="M18.75 2H4v1.5h3.5v2h9v-2h2V9H20V3.25C20 2.56 19.44 2 18.75 2M7.5 7v1.5c0 2.48 2.02 4.5 4.5 4.5s4.5-2.02 4.5-4.5V7zm11.58 10.86L20.345 22h-16.7l1.265-4.14a4.725 4.725 0 0 1 4.545-3.36h5.08c2.105 0 3.93 1.35 4.545 3.36"
+        clip-rule="evenodd"
+      />
+    </svg>
+
+    <span>Students</span>
+  </h1>
+  <a routerLink="/characters/students" class="w-full btn bg-amber-400 text-black">
+    View Students
+  </a>
+  <div class="divider"></div>
+  <h1 class="text-3xl font-bold flex items-center mb-3">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+      <path d="M0 0h24v24H0z" fill="none" />
+      <path
+        fill="currentColor"
+        d="M20 17a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H9.46c.35.61.54 1.3.54 2h10v11h-9v2m4-10v2H9v13H7v-6H5v6H3v-8H1.5V9a2 2 0 0 1 2-2zM8 4a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2a2 2 0 0 1 2 2"
+      />
+    </svg>
+    <span>Staff</span>
+  </h1>
+  <a routerLink="/characters/staff" class="w-full btn bg-amber-400 text-black">
+    View Staff
+  </a>
+</section>
