@@ -7,6 +7,9 @@ export const routes: Routes = [{
   path: 'spells',
   loadChildren: () => import('./spells/spells.routes')
 },{
+  path: 'characters',
+  loadChildren: () => import('./characters/characters.routes')
+},{
   path: '**',
   redirectTo: '/main'
 }];
