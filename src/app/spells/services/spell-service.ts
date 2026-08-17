@@ -9,9 +9,7 @@ export class SpellService {
 
   private http = inject(HttpClient);
 
-  environment = environment;
-
   getSpells(): Observable<Spell[]> {
-    return this.http.get<Spell[]>(`${environment.baseUrl}/spells`);
+    return this.http.get<Spell[]>(`/spells`);
   }
 }
