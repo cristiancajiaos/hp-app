@@ -8,14 +8,14 @@ export class CharacterService {
 
   private http = inject(HttpClient);
 
-  allCharactersCache = new Map<string, Character[]>();
+  charactersCache = new Map<string, Character[]>();
 
   getCharacters(): Observable<Character[] | undefined> {
-    if (this.allCharactersCache.has('all')) {
-      return of(this.allCharactersCache.get('all'));
+    if (this.charactersCache.has('all')) {
+      return of(this.charactersCache.get('all'));
     }
     return this.http.get<Character[]>(`/characters`).pipe(
-      tap(characters => this.allCharactersCache.set('all', characters))
+      tap(characters => this.charactersCache.set('all', characters))
     )
   }
 
@@ -29,8 +29,13 @@ export class CharacterService {
     )
   }
 
-  getStudentCharacters(): Observable<Character[]> {
-    return this.http.get<Character[]>(`/characters/students`);
+  getStudentCharacters(): Observable<Character[] | undefined> {
+    if (this.charactersCache.has('students')) {
+      return of(this.charactersCache.get('students'));
+    }
+    return this.http.get<Character[]>(`/characters/students`).pipe(
+      tap(characters => this.charactersCache.set('students', characters))
+    )
   }
 
   getStaffCharacters(): Observable<Character[]> {
