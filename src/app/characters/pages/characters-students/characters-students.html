@@ -1,1 +1,9 @@
-<p>characters-students works!</p>,
+<section class="characters-students">
+  @if (charactersStudents.isLoading()) {
+    <app-loading/>
+  }
+  @if (charactersStudents.hasValue()) {
+    <app-character-results [characters]="charactersStudents.value()"/>
+  }
+</section>
+

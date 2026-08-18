@@ -21,4 +21,8 @@ export class CharacterService {
       map(results => results[0])
     )
   }
+
+  getStudentCharacters(): Observable<Character[]> {
+    return this.http.get<Character[]>(`/characters/students`);
+  }
 }
