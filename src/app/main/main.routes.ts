@@ -4,7 +4,11 @@ import { MainPage } from './pages/main-page/main-page';
 export const mainRoutes: Routes = [
   {
     path: '',
-    children: [{ path: '', component: MainPage, pathMatch: 'full' }],
+    children: [
+      { path: '',
+        component: MainPage,
+        title: 'HP App',
+        pathMatch: 'full' }],
   },
 ];
 

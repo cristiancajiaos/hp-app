@@ -6,6 +6,7 @@ export const spellRoutes: Routes = [{
   children: [{
     path: '',
     component: MainSpells,
+    title: 'Spells',
     pathMatch: 'full'
   }]
 }];

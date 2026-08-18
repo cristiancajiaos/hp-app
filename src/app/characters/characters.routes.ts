@@ -12,21 +12,25 @@ export const charactersRoutes: Routes = [
       {
         path: 'home',
         component: CharactersHome,
+        title: 'Which characters do you want to find?',
         pathMatch: 'full',
       },
       {
         path: 'students',
         component: CharactersStudents,
+        title: 'Characters who are students',
         pathMatch: 'full',
       },
       {
         path: 'house/:house',
         component: CharactersHouse,
+        title: 'Characters from house',
         pathMatch: 'full',
       },
       {
         path: 'staff',
         component: CharactersStaff,
+        title: 'Characters who are part of the staff of Hogwarts',
         pathMatch: 'full',
       },
       {
