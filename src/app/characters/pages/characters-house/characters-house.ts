@@ -6,10 +6,11 @@ import { CharacterService } from '../../services/character-service';
 import { TitleCasePipe } from '@angular/common';
 import { Loading } from '../../../shared/components/loading/loading';
 import { CharacterResult } from '../../components/character-result/character-result';
+import { CharacterResults } from '../../components/character-results/character-results';
 
 @Component({
   selector: 'app-characters-house',
-  imports: [TitleCasePipe, Loading, CharacterResult],
+  imports: [TitleCasePipe, Loading, CharacterResults],
   templateUrl: './characters-house.html',
   styleUrl: './characters-house.css',
 })

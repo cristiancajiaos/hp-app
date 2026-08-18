@@ -31,11 +31,6 @@
         Characters from <span class="text-amber-400">{{ house() | titlecase }}</span>
       </span>
     </h1>
-    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-      @for (character of charactersFromHouse.value(); track character.id) {
-        <app-character-result [character]="character"/>
-      }
-
-    </div>
+    <app-character-results [characters]="charactersFromHouse.value()"/>
   }
 </section>
