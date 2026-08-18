@@ -38,7 +38,12 @@ export class CharacterService {
     )
   }
 
-  getStaffCharacters(): Observable<Character[]> {
-    return this.http.get<Character[]>(`/characters/staff`);
+  getStaffCharacters(): Observable<Character[] | undefined> {
+    if (this.charactersCache.has('staff')) {
+      return of(this.charactersCache.get('staff'));
+    }
+    return this.http.get<Character[]>(`/characters/staff`).pipe(
+      tap(characters => this.charactersCache.set('staff', characters))
+    )
   }
 }
