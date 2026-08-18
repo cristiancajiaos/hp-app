@@ -9,6 +9,7 @@ export class CharacterService {
   private http = inject(HttpClient);
 
   charactersCache = new Map<string, Character[]>();
+  charactersHouseCache = new Map<string, Character[]>();
 
   getCharacters(): Observable<Character[] | undefined> {
     if (this.charactersCache.has('all')) {
@@ -19,8 +20,13 @@ export class CharacterService {
     )
   }
 
-  getCharactersByHouse(house: string): Observable<Character[]> {
-    return this.http.get<Character[]>(`/characters/house/${house}`);
+  getCharactersByHouse(house: string): Observable<Character[] | undefined> {
+    if (this.charactersHouseCache.has(house)) {
+      return of(this.charactersHouseCache.get(house));
+    }
+    return this.http.get<Character[]>(`/characters/house/${house}`).pipe(
+      tap(characters => this.charactersHouseCache.set(house, characters))
+    )
   }
 
   getCharacterById(id: string): Observable<Character> {
