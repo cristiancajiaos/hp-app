@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { rxResource, toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
-import { map} from 'rxjs';
+import { map, tap} from 'rxjs';
 import { CharacterService } from '../../services/character-service';
 import { TitleCasePipe } from '@angular/common';
 import { Loading } from '../../../shared/components/loading/loading';
-import { CharacterResult } from '../../components/character-result/character-result';
 import { CharacterResults } from '../../components/character-results/character-results';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-characters-house',
@@ -18,6 +18,7 @@ export class CharactersHouse {
 
   private activatedRoute = inject(ActivatedRoute);
   private characterService = inject(CharacterService);
+  private title = inject(Title);
 
   house = toSignal(
     this.activatedRoute.params.pipe(
@@ -30,6 +31,9 @@ export class CharactersHouse {
       house: this.house()
     }),
     stream: ({params}) => {
+      this.title.setTitle(
+        `Characters from the ${params.house.slice(0,1).toUpperCase().concat(params.house.slice(1).toLowerCase())} house`
+      );
       return this.characterService.getCharactersByHouse(params.house)
     }
   });
