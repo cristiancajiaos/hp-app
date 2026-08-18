@@ -1,1 +1,9 @@
-<p>characters-staff works!</p>,
+<section class="characters-staff">
+  @if (charactersStaff.isLoading()) {
+    <app-loading/>
+  }
+  @if (charactersStaff.hasValue()) {
+    <app-character-results [characters]="charactersStaff.value()"/>
+  }
+</section>
+

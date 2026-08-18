@@ -25,4 +25,8 @@ export class CharacterService {
   getStudentCharacters(): Observable<Character[]> {
     return this.http.get<Character[]>(`/characters/students`);
   }
+
+  getStaffCharacters(): Observable<Character[]> {
+    return this.http.get<Character[]>(`/characters/staff`);
+  }
 }
