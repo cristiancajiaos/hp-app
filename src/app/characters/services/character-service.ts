@@ -8,8 +8,15 @@ export class CharacterService {
 
   private http = inject(HttpClient);
 
-  getCharacters(): Observable<Character[]> {
-    return this.http.get<Character[]>(`/characters`);
+  allCharactersCache = new Map<string, Character[]>();
+
+  getCharacters(): Observable<Character[] | undefined> {
+    if (this.allCharactersCache.has('all')) {
+      return of(this.allCharactersCache.get('all'));
+    }
+    return this.http.get<Character[]>(`/characters`).pipe(
+      tap(characters => this.allCharactersCache.set('all', characters))
+    )
   }
 
   getCharactersByHouse(house: string): Observable<Character[]> {
