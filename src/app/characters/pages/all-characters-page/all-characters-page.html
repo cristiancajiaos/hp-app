@@ -1,0 +1,11 @@
+<section class="all-characters-page">
+  @if (allCharacters.isLoading()) {
+    <app-loading />
+  }
+  @if (allCharacters.hasValue()) {
+    <h1 class="text-3xl font-bold mb-3">
+      All Characters
+    </h1>
+    <app-character-results [characters]="allCharacters.value()"/>
+  }
+</section>

@@ -4,6 +4,7 @@ import { CharactersStudents } from './pages/characters-students/characters-stude
 import { CharactersHouse } from './pages/characters-house/characters-house';
 import { CharactersStaff } from './pages/characters-staff/characters-staff';
 import { CharacterPage } from './pages/character-page/character-page';
+import { AllCharactersPage } from './pages/all-characters-page/all-characters-page';
 
 export const charactersRoutes: Routes = [
   {
@@ -32,6 +33,12 @@ export const charactersRoutes: Routes = [
         component: CharactersStaff,
         title: 'Characters who are part of the staff of Hogwarts',
         pathMatch: 'full',
+      },
+      {
+        path: 'all-characters',
+        component: AllCharactersPage,
+        title: 'All Characters',
+        pathMatch: 'full'
       },
       {
         path: ':id',
