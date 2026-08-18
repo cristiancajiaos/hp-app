@@ -6,7 +6,9 @@
     <header class="mb-3">
       <h1 class="text-3xl font-bold">
         {{ characterId.value()?.name }}
-        <div class="badge badge-warning">{{ characterId.value()?.house }}</div>
+        @if (characterId.value()?.house) {
+          <div class="badge badge-warning">{{ characterId.value()?.house }}</div>
+        }
       </h1>
     </header>
     <div class="divider"></div>
@@ -52,6 +54,9 @@
       <p>Is a wizard?: {{ characterId.value()?.wizard ? 'Yes' : 'No' }}</p>
       <p>Is a student?: {{ characterId.value()?.hogwartsStudent ? 'Yes' : 'No' }}</p>
       <p>Is part of the Hogwarts staff?: {{ characterId.value()?.hogwartsStaff ? 'Yes' : 'No' }}</p>
+      @if (characterId.value()?.house) {
+        <p>House: {{ characterId.value()?.house }}</p>
+      }
       @if (characterId.value()?.actor) {
         <p>Actor who portrays in the movies: {{ characterId.value()?.actor }}</p>
       }
